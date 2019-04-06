@@ -37,8 +37,9 @@ static int my_simple_mmap(struct file *filp, struct vm_area_struct *vma)
 
 static int my_simple_release(struct inode *inodep, struct file* filep)
 {
-    printk(KERN_INFO "MWR: Memory release");
-    return 0;
+	kfree(filep->private_data);
+	printk(KERN_INFO "MWR: Memory release");
+	return 0;
 }
 
 
