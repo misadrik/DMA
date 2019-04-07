@@ -20,7 +20,7 @@ static int my_simple_open(struct inode *inodep, struct file *filep)
         printk(KERN_ALERT "MISaD: Space allocte failed!\n");
         return -1;
     }
-
+    *(char *)filep->private_data = "abcdef";
     printk(KERN_INFO "MISaD: Space allocated %lx\n", filep->private_data);
     return 0;
 }
