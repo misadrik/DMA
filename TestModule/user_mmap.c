@@ -29,7 +29,7 @@ int main(int argc,char* const *argv)
 	assert(addr != MAP_FAILED);
 	printf("mmap OK addr:%lx\n", addr);
 	
-	write_to_mem(addr,6,*a);
+	//write_to_mem(addr,6,*a);
 
 	read_from_mem(addr,6);
 	return 0; 

@@ -20,7 +20,7 @@ static int my_simple_open(struct inode *inodep, struct file *filep)
         printk(KERN_ALERT "MISaD: Space allocte failed!\n");
         return -1;
     }
-    *(char *)filep->private_data = "abcdef";
+    memset(filep->private_data,'b',100);
     printk(KERN_INFO "MISaD: Space allocated %lx\n", filep->private_data);
     return 0;
 }
@@ -41,7 +41,7 @@ static int my_simple_mmap(struct file *filp, struct vm_area_struct *vma)
 
 static int my_simple_release(struct inode *inodep, struct file *filep)
 {
-    kfree(filep->private_data);
+    //kfree(filep->private_data);
     printk(KERN_INFO "MISaD: Memory release");
     return 0;
 }
