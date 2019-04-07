@@ -30,7 +30,7 @@ static int my_simple_mmap(struct file *filp, struct vm_area_struct *vma)
         return -EAGAIN;
     }
     
-    printk(KERN_INFO "MWR: VIRT_ADDR %lx, PHY_ADDR %lx\n", vma->vm_start, virt_to_pfn(filp->private_data))
+    printk(KERN_INFO "MWR: VIRT_ADDR %lx, PHY_ADDR %lx\n", vma->vm_start, virt_to_pfn(filp->private_data));
     printk(KERN_INFO "MWR: Device mmap OK\n");
     return 0;
 }
