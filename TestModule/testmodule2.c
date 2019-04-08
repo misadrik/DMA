@@ -2,10 +2,10 @@
 #include <linux/kernel.h> /* min */
 #include <linux/mm.h>
 #include <linux/module.h>
-#include <linux/fs.h>
+#include <linux/fs.h> //file_operations
 #include <linux/slab.h> //kmalloc()
-#include <asm/page.h>
-#include "testmodule2.h"
+#include <asm/page.h> //virt_to_pfn()
+#include "testmodule2.h" //virt_to_pfn()
 
 #define HELLO_MAJOR 231
 
