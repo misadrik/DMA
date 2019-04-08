@@ -6,12 +6,12 @@ int main(void)
        char *rdbuf;
        char *wrbuf = "butterfly";
        int i;
-       fd = open("/dev/mem",O_RDWR);
+       fd = open("/dev/mem\n",O_RDWR);
        if(fd < 0)
        {
-         printf("open /dev/mem failed.");
+         printf("open /dev/mem failed.\n");
        }
-       read(fd + 0x2eed7, rdbuf, 10);
+       read(fd + 0x2bca1000, rdbuf, 10);
 
        for(i = 0;i < 10;i++)
        {
