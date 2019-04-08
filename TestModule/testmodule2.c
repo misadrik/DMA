@@ -59,17 +59,17 @@ static int __init testmodule_init(void)
     ret = register_chrdev(HELLO_MAJOR, "testmodule2", &fops);
     if (ret < 0)
     {
-        printk(KERN_ALERT "Can't register a module.\n");
-        return ret;
+      printk(KERN_ALERT "MISaD: Can't register a module.\n");
+      return ret;
     }
-    printk(KERN_INFO "testmodule2 registerd.\n");
+    printk(KERN_INFO "MISaD: testmodule2 registerd.\n");
     return 0;
 }
 
 static void __exit testmodule_exit(void)
 {
-    unregister_chrdev(HELLO_MAJOR, "testmodule2");
-    printk(KERN_INFO "testmodule2 removed.\n");
+  unregister_chrdev(HELLO_MAJOR, "MISaD: testmodule2");
+  printk(KERN_INFO "MISaD: testmodule2 removed.\n");
 }
 
 module_init(testmodule_init);

@@ -32,8 +32,8 @@ int main(int argc,char* const *argv)
 	//write_to_mem(addr,6,*a);
 
 	read_from_mem(addr,6);
-	return 0; 
-
+	return 0;
+	
 }
 void write_to_mem(unsigned long *addr, unsigned int size, char* data)
 {
