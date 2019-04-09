@@ -56,7 +56,11 @@ static struct file_operations fops = {
 static int __init testmodule_init(void)
 {
     int ret;
-    ret = register_chrdev(HELLO_MAJOR, "testmodule2", &fops);
+    ret = register_chrdev(HELLO_MAJOR, "testmodule2", &fops);//old way of register a char device before 2.6 kernal
+    //void cdev_init(struct cdev *cdev, struct file_operactions *fops);
+    //after structure setup, tell the kernel about it with a call
+    //int cdev_add(struct cdev* dev, dev_t num, unsigned int count); //<0 fail
+
     if (ret < 0)
     {
       printk(KERN_ALERT "MISaD: Can't register a module.\n");
@@ -68,7 +72,9 @@ static int __init testmodule_init(void)
 
 static void __exit testmodule_exit(void)
 {
-  unregister_chrdev(HELLO_MAJOR, "MISaD: testmodule2");
+  unregister_chrdev(HELLO_MAJOR, "testmodule2");
+  //remove a char device 
+  //void cdev_del(struct cdev* dev);
   printk(KERN_INFO "MISaD: testmodule2 removed.\n");
 }
 
