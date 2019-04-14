@@ -3,11 +3,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/mman.h>
-#include <fcntl.h>
 #include <unistd.h>
-#include <sys/stat.h>
 #include <assert.h>
-#include <fcntl.h>
 
 void write_to_mem(unsigned long *addr, unsigned int size, char* data);
 void read_from_mem(unsigned long *addr, unsigned int size);
@@ -29,7 +26,7 @@ int main(int argc,char* const *argv)
 	assert(addr != MAP_FAILED);
 	printf("mmap OK addr:%lx\n", addr);
 	
-	//write_to_mem(addr,6,*a);
+	//write_to_mem(addr,6,a);
 
 	read_from_mem(addr,6);
 	return 0;
