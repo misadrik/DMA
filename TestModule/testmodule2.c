@@ -77,7 +77,7 @@ static int __init testmodule_init(void)
     printk(KERN_INFO "MISaD: testmodule registerd.\n");
     buffer = (unsigned char *)kzalloc(size, GFP_KERNEL);
     SetPageReserved(virt_to_page(buffer));
-    memset(filep->private_data, 'b', 100);
+    memset(buffer, 'b', 100);
     printk(KERN_INFO "MISaD: Space allocated %lx\n", buffer);
 
     return 0;
